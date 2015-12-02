@@ -1,0 +1,17 @@
+﻿@model Damacana_Husnucan.Models.Product
+
+<h2>Yeni Ürün Ekleme</h2>
+
+@using (Html.BeginForm("SaveProduct", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Names</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-default">Ekle</button>
+
+}   

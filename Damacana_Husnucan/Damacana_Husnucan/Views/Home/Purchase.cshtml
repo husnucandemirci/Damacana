@@ -1,0 +1,20 @@
+﻿@using Damacana_Husnucan.Models
+@model Cart
+
+<br />
+<h3>Sipariş Ödeme</h3>
+<br />
+
+
+    <div class="alert alert-success" role="alert">
+        <h4 class="media-heading">Ödenecek Miktar: @Model.TotalPrice</h4>
+      <br/>
+        <a class="btn btn-info" href="@Url.Action("PurchaseHistory")"><b>Ödemeyi Yap</b></a>
+    </div>
+
+ <nav>
+            <ul class="pager">
+                <li><a href="@Url.Action("Index")">Ana Sayfaya Dön</a></li>
+            </ul>
+
+        </nav>

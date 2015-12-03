@@ -165,6 +165,7 @@
     <Content Include="Views\Home\DeleteFromList.cshtml" />
     <Content Include="Views\Home\Purchase.cshtml" />
     <Content Include="Views\Home\PurchaseHistory.cshtml" />
+    <Content Include="Views\Home\PurchaseDone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

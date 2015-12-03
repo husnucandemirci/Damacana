@@ -5,16 +5,20 @@
 <h3>Sipariş Ödeme</h3>
 <br />
 
+<table style="width:30%">
+<tr>
+    <td>
+        <div class="alert alert-success" role="alert">
+            <h4 class="media-heading">Ödenecek Miktar: @Model.TotalPrice TL</h4>
+            <br />
+            <a class="btn btn-info" href="@Url.Action("PurchaseDone")"><b>Ödemeyi Yap</b></a>
+        </div>
+    </td>
+    </tr>
+</table>
+    <nav>
+        <ul class="pager">
+            <li><a href="@Url.Action("Index")">Ana Sayfaya Dön</a></li>
+        </ul>
 
-    <div class="alert alert-success" role="alert">
-        <h4 class="media-heading">Ödenecek Miktar: @Model.TotalPrice</h4>
-      <br/>
-        <a class="btn btn-info" href="@Url.Action("PurchaseHistory")"><b>Ödemeyi Yap</b></a>
-    </div>
-
- <nav>
-            <ul class="pager">
-                <li><a href="@Url.Action("Index")">Ana Sayfaya Dön</a></li>
-            </ul>
-
-        </nav>
+    </nav>

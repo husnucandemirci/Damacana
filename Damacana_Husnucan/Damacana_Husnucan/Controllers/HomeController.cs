@@ -39,15 +39,16 @@ namespace Damacana_Husnucan.Controllers
        
 
         };
-        public static List<Product> CartProducts = new List<Product>()
+        public static List<Product> CartProducts = new List<Product>
         {
 
         };
-        public static List<Cart> Cartlist = new List<Cart>()
+        public static List<Cart> Cartlist = new List<Cart>
         {
         
 
         };
+        
         public ActionResult Index()
         {
 
@@ -106,7 +107,7 @@ namespace Damacana_Husnucan.Controllers
                     break;
                 }
 
-              
+                
             }
 
             return View();
@@ -167,34 +168,66 @@ namespace Damacana_Husnucan.Controllers
            
         }
         int Cartnumber = 1;
-        public ActionResult Purchase (List<Product> X)
+        public static Cart cart = new Cart();
+        public ActionResult Purchase ()
         {
-            
-            Cart cart = new Cart();
+
+            cart.TotalPrice = 0;
+            cart.Cartproducts = new List<Product>();
             cart.Id = Cartnumber;
             cart.UserId = 1;
-            foreach (Product p in X)
-            {
             Product product = new Product();
+            foreach (Product p in CartProducts)
+            {
+           
             product.Id = p.Id;
             product.Price = p.Price;
             product.Name = p.Name;
             cart.Cartproducts.Add(product);
             cart.TotalPrice = cart.TotalPrice + p.Price;
             Cartnumber++;
-            }
-            foreach(Product p in X)
-            {
+        }
+            
 
-                X.Remove(p);
-            }
+         CartProducts.Clear();
+         
            
         
         return View(cart);
         }
+        public static List<Purchase> PurchaseList = new List<Purchase>
+        {
+
+        };
+        static int Purchasenumber = 1;
+       
+        public ActionResult PurchaseDone()
+        {
+            Purchase p = new Purchase();
+            p.Id = Purchasenumber;
+            p.TotalPrice = cart.TotalPrice;
+            p.UserId = 1;
+            p.PurchaseList = new List<Product>();
+            //Product K = new Product();
+            //var Elemansayisi = cart.Cartproducts.Count();
+            //int i = 0;
+           
+            //foreach (Product L in cart.Cartproducts){
+                //p.PurchaseList[i].Id = L.Id;
+                //p.PurchaseList[i].Price = L.Price;
+                //p.PurchaseList[i].Name = L.Name;
+                //i++;}
+            
+            p.CreatedOn = DateTime.Now;
+            PurchaseList.Add(p);
+            Purchasenumber++;
+            
+        return View(p);
+        }
         public ActionResult PurchaseHistory()
         {
-        return View();
+
+            return View(PurchaseList);
         }
 
     }

@@ -88,9 +88,10 @@ namespace Damacana_Husnucan.Controllers
                 if(p.Name == Name)
                 {
                     CartProducts.Remove(p);
+                    break;
                 }
 
-                break;
+                
             }
 
             return View();
@@ -102,9 +103,10 @@ namespace Damacana_Husnucan.Controllers
                 if (p.Name == Name)
                 {
                     products.Remove(p);
+                    break;
                 }
 
-                break;
+              
             }
 
             return View();

@@ -13,7 +13,14 @@
                 <h4 class="media-heading">Toplam Tutar: @Model.TotalPrice TL</h4>
                 <h4 class="media-heading">Purchase Id: @Model.Id</h4>
                 <h4 class="media-heading">Ödeme Tarihi: @Model.CreatedOn</h4>
-            
+               @for (int i = 0; i < Model.PurchaseList.Count(); i++ )
+               {
+                <ul>
+                    <li>
+                    @Model.PurchaseList[i].Price TL -  @Model.PurchaseList[i].Name
+                    </li>
+                </ul>
+               }
 
                 </div>
         </td>

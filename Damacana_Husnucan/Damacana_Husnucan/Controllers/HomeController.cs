@@ -189,7 +189,7 @@ namespace Damacana_Husnucan.Controllers
         }
             
 
-         CartProducts.Clear();
+        
          
            
         
@@ -207,17 +207,17 @@ namespace Damacana_Husnucan.Controllers
             p.Id = Purchasenumber;
             p.TotalPrice = cart.TotalPrice;
             p.UserId = 1;
-            p.PurchaseList = new List<Product>();
-            //Product K = new Product();
-            //var Elemansayisi = cart.Cartproducts.Count();
-            //int i = 0;
-           
-            //foreach (Product L in cart.Cartproducts){
-                //p.PurchaseList[i].Id = L.Id;
-                //p.PurchaseList[i].Price = L.Price;
-                //p.PurchaseList[i].Name = L.Name;
-                //i++;}
-            
+            p.PurchaseList = new List<Product>
+            {
+
+            };
+            for (int i = 0; i <CartProducts.Count(); i++ )
+            {
+
+                p.PurchaseList.Add(CartProducts[i]);
+            }
+
+            CartProducts.Clear();
             p.CreatedOn = DateTime.Now;
             PurchaseList.Add(p);
             Purchasenumber++;

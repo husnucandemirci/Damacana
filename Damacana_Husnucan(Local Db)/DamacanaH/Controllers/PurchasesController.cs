@@ -16,26 +16,22 @@ namespace DamacanaH.Controllers
 
         private PurchaseDBContext db2 = new PurchaseDBContext();
        
-        public ActionResult PurchaseDone(Purchase purchase)
+        public ActionResult PurchaseDone()
         {
+            Purchase purchase = (Purchase)TempData["Purchase"];
+            
             purchase.CreatedOn = DateTime.Now;
             purchase.UserId = 1;
             db2.Purchases.Add(purchase);
-            db2.SaveChanges();
+            //db2.SaveChanges(); //db2'e yapılan değişiklikleri kaydedemiyorum. Hata veriyor.
             return View(purchase);
-              //@for (int i = 0; i < Model.PurchaseList.Count(); i++)
-              //{
-              //<ul>
-              //<li>
-              //@Model.PurchaseList[i].Price TL -  @Model.PurchaseList[i].Name
-              //</li>
-              //</ul>}
+              
                 
         }
         public ActionResult PurchaseHistory()
         {
 
-        return View(db2.Purchases);
+            return View(db2.Purchases.ToList());
 
         }
     }

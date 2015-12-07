@@ -130,7 +130,7 @@ namespace DamacanaH.Controllers
 
             return View();
         }
-
+        int purchaseid = 1;
          public ActionResult Purchase()
         {
             Purchase purchase = new Purchase();
@@ -141,7 +141,11 @@ namespace DamacanaH.Controllers
                 purchase.PurchaseList.Add(p);
                 totalprice = p.Price + totalprice;
             }
+            purchase.Id = purchaseid;
+            purchaseid = purchaseid + 1;
             purchase.TotalPrice = totalprice;
+            TempData["Purchase"] = purchase;
+            CartProducts.Clear();
             return View(purchase);
            
         }

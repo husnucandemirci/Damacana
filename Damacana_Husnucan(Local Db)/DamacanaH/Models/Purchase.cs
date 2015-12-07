@@ -25,6 +25,6 @@ namespace DamacanaH.Models
     {
         public DbSet<Purchase> Purchases { get; set; }
 
-        public System.Data.Entity.DbSet<DamacanaH.Models.User> Users { get; set; }
+        
     }
 }

@@ -23,7 +23,7 @@ namespace DamacanaH.Controllers
             purchase.CreatedOn = DateTime.Now;
             purchase.UserId = 1;
             db2.Purchases.Add(purchase);
-            //db2.SaveChanges(); //db2'e yapılan değişiklikleri kaydedemiyorum. Hata veriyor.
+            db2.SaveChanges(); 
             return View(purchase);
               
                 
